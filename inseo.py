@@ -187,7 +187,7 @@ file.close()
 '''
 
 #학교종이
-
+'''
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from subprocess import CREATE_NO_WINDOW
@@ -223,6 +223,8 @@ e.click()
 
 time.sleep(2)
 
+
+
 info=[ ]
 for i in range(10):
     temp=[ ]
@@ -234,16 +236,25 @@ for i in range(10):
     temp.append(e.text)
     info.append(temp)
 
-for i in range(10):
-    print(info[i][0],info[i][1])
-
-'''    
 file=open('테스트.txt','w')
-file.write(e.text+'\n')
+for i in range(10):
+    file.write(info[i][0].replace("발행","")+ ":"+ info[i][1]+"\n")
 file.close()
 '''
 
-    
+#네이버 뉴스기사
 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from subprocess import CREATE_NO_WINDOW
+serv=Service()
+serv.creation_flags=CREATE_NO_WINDOW
+driver=webdriver.Chrome(service=serv)
+import time
 
+query=["세븐틴","호시","탕후루","마라탕"]
 
+for i in range(len(query)):
+    driver.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query="+query[i])
+    time.sleep(3)
+    driver.save_screenshot(query[i]+".jpg")
