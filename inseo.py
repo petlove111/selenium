@@ -187,7 +187,7 @@ file.close()
 '''
 
 #학교종이
-'''
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from subprocess import CREATE_NO_WINDOW
@@ -240,8 +240,8 @@ file=open('테스트.txt','w')
 for i in range(10):
     file.write(info[i][0].replace("발행","")+ ":"+ info[i][1]+"\n")
 file.close()
-'''
 
+'''
 #네이버 뉴스기사
 
 from selenium import webdriver
@@ -258,3 +258,4 @@ for i in range(len(query)):
     driver.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query="+query[i])
     time.sleep(3)
     driver.save_screenshot(query[i]+".jpg")
+'''
